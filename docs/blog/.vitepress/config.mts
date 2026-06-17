@@ -7,9 +7,9 @@ export default {
   appearance: true,
   themeConfig: {
     nav: [
-      { text: '首页', link: '/blog/' },
-      { text: '笔记', link: '/blog/posts/notes.html' },
-      { text: '技术', link: '/blog/posts/tech.html' },
+      { text: '首页', link: '/' },
+      { text: '笔记', link: '/posts/notes.html' },
+      { text: '技术', link: '/posts/tech.html' },
       { text: 'Gateway', link: 'https://wywww431.github.io/' }
     ],
     socialLinks: [

@@ -6,8 +6,8 @@ export default {
   appearance: true,
   themeConfig: {
     nav: [
-      { text: 'Hobbies', link: '/life/hobbies.html' },
-      { text: 'Reading', link: '/life/reading.html' },
+      { text: 'Hobbies', link: '/hobbies.html' },
+      { text: 'Reading', link: '/reading.html' },
       { text: 'Gateway', link: 'https://wywww431.github.io/' }
     ],
     socialLinks: [

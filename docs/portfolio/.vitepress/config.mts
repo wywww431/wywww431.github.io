@@ -6,9 +6,9 @@ export default {
   appearance: true,
   themeConfig: {
     nav: [
-      { text: 'Projects', link: '/portfolio/projects.html' },
-      { text: 'Honors', link: '/portfolio/honors.html' },
-      { text: 'CV', link: '/portfolio/cv.html' },
+      { text: 'Projects', link: '/projects.html' },
+      { text: 'Honors', link: '/honors.html' },
+      { text: 'CV', link: '/cv.html' },
       { text: 'Gateway', link: 'https://wywww431.github.io/' }
     ],
     socialLinks: [
