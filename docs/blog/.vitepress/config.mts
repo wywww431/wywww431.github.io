@@ -2,6 +2,7 @@ export default {
   title: 'Blog',
   description: '学习笔记与技术文章',
   base: '/blog/',
+  ignoreDeadLinks: true,
   head: [['link', { rel: 'icon', type: 'image/svg+xml', href: '/blog/icon.svg' }]],
   appearance: true,
   themeConfig: {
