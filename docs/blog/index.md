@@ -16,8 +16,8 @@ hero:
 features:
   - title: 📓 学习笔记
     details: 课程笔记、算法整理、知识总结
-    link: /blog/posts/notes
+    link: /posts/notes.html
   - title: 💻 技术文章
     details: 前端、后端、工具链实践分享
-    link: /blog/posts/tech
+    link: /posts/tech.html
 ---
