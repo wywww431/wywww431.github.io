@@ -8,10 +8,10 @@ hero:
   actions:
     - theme: brand
       text: 笔记 Notes
-      link: /blog/posts/notes
+      link: /posts/notes.html
     - theme: alt
       text: 技术 Tech
-      link: /blog/posts/tech
+      link: /posts/tech.html
 
 features:
   - title: 📓 学习笔记

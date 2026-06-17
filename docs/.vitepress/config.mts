@@ -1,6 +1,7 @@
 export default {
   title: 'wywww431',
   description: '个人网站门户（Gateway）',
+  ignoreDeadLinks: true,
   head: [['link', { rel: 'icon', type: 'image/svg+xml', href: '/icon.svg' }]],
   appearance: true,
   themeConfig: {
