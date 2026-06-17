@@ -1,12 +1,322 @@
-  <!DOCTYPE html>
+ <!DOCTYPE html>
   <html lang="zh-CN">
   <head>
       <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>我的个人网站</title>
+      <style>
+          /* ========== 基础样式 ========== */
+          * { margin: 0; padding: 0; box-sizing: border-box; }
+
+          body {
+              font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+              background: #f5f5f5;
+              color: #333;
+              line-height: 1.8;
+          }
+
+          /* ========== 导航栏 ========== */
+          nav {
+              background: #2c3e50;
+              padding: 15px 0;
+              position: sticky;
+              top: 0;
+              z-index: 100;
+          }
+          nav ul {
+              display: flex;
+              justify-content: center;
+              gap: 30px;
+              list-style: none;
+          }
+          nav a {
+              color: #ecf0f1;
+              text-decoration: none;
+              font-size: 16px;
+              padding: 5px 10px;
+              border-radius: 4px;
+              transition: background 0.3s;
+          }
+          nav a:hover { background: #34495e; }
+
+          /* ========== 头部横幅 ========== */
+          .hero {
+              background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+              color: white;
+              text-align: center;
+              padding: 80px 20px;
+          }
+          .hero h1 { font-size: 48px; margin-bottom: 10px; }
+          .hero p { font-size: 20px; opacity: 0.9; }
+          .avatar {
+              width: 120px;
+              height: 120px;
+              border-radius: 50%;
+              border: 4px solid white;
+              margin-bottom: 20px;
+              object-fit: cover;
+              background: rgba(255,255,255,0.3);
+          }
+
+          /* ========== 内容区 ========== */
+          .container {
+              max-width: 900px;
+              margin: 0 auto;
+              padding: 40px 20px;
+          }
+
+          .section {
+              background: white;
+              border-radius: 12px;
+              padding: 35px;
+              margin-bottom: 30px;
+              box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+          }
+          .section h2 {
+              font-size: 26px;
+              margin-bottom: 20px;
+              padding-bottom: 10px;
+              border-bottom: 3px solid;
+              display: inline-block;
+          }
+
+          /* 每个板块不同颜色 */
+          .hobby h2    { border-color: #e74c3c; color: #e74c3c; }
+          .study h2    { border-color: #3498db; color: #3498db; }
+          .life h2     { border-color: #2ecc71; color: #2ecc71; }
+          .food h2     { border-color: #f39c12; color: #f39c12; }
+
+          /* ========== 卡片网格 ========== */
+          .card-grid {
+              display: grid;
+              grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+              gap: 20px;
+          }
+          .card {
+              background: #fafafa;
+              border-radius: 8px;
+              padding: 20px;
+              transition: transform 0.2s, box-shadow 0.2s;
+          }
+          .card:hover {
+              transform: translateY(-3px);
+              box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+          }
+          .card .icon { font-size: 36px; margin-bottom: 10px; }
+          .card h3 { font-size: 18px; margin-bottom: 8px; }
+          .card p { color: #666; font-size: 14px; }
+
+          /* ========== 时间线（学习） ========== */
+          .timeline { padding-left: 25px; border-left: 3px solid #3498db; }
+          .timeline-item {
+              margin-bottom: 25px;
+              position: relative;
+              padding-left: 20px;
+          }
+          .timeline-item::before {
+              content: "";
+              width: 14px; height: 14px;
+              background: #3498db;
+              border-radius: 50%;
+              position: absolute;
+              left: -32px; top: 5px;
+          }
+          .timeline-item h3 { font-size: 17px; color: #3498db; }
+          .timeline-item .date { font-size: 13px; color: #999; }
+
+          /* ========== 标签 ========== */
+          .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 15px; }
+          .tag {
+              padding: 4px 14px;
+              border-radius: 20px;
+              font-size: 13px;
+              color: white;
+          }
+          .tag.red    { background: #e74c3c; }
+          .tag.blue   { background: #3498db; }
+          .tag.green  { background: #2ecc71; }
+          .tag.orange { background: #f39c12; }
+          .tag.purple { background: #9b59b6; }
+
+          /* ========== 美食评分 ========== */
+          .food-item {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              padding: 12px 0;
+              border-bottom: 1px dashed #eee;
+          }
+          .food-item:last-child { border-bottom: none; }
+          .stars { color: #f39c12; font-size: 18px; letter-spacing: 2px; }
+
+          /* ========== 页脚 ========== */
+          footer {
+              text-align: center;
+              padding: 30px;
+              color: #999;
+              font-size: 14px;
+          }
+          footer a { color: #667eea; text-decoration: none; }
+
+          /* ========== 手机适配 ========== */
+          @media (max-width: 600px) {
+              .hero h1 { font-size: 32px; }
+              .hero p { font-size: 16px; }
+              nav ul { gap: 15px; }
+              .section { padding: 25px 20px; }
+          }
+      </style>
   </head>
   <body>
-      <h1>你好，欢迎来到我的网站！</h1>
-      <p>这是我的第一个 GitHub Pages 网站。</p>
-      <p>我是一名浙江大学CS专业的学生！</p>
+
+  <!-- ====== 导航栏 ====== -->
+  <nav>
+      <ul>
+          <li><a href="#hobby">🎮 爱好</a></li>
+          <li><a href="#study">📚 学习</a></li>
+          <li><a href="#life">🌿 生活</a></li>
+          <li><a href="#food">🍜 美食</a></li>
+      </ul>
+  </nav>
+
+  <!-- ====== 头部横幅 ====== -->
+  <div class="hero">
+      <!-- 头像：可以换成自己的图片链接 -->
+      <div class="avatar" style="display:flex;align-items:center;justify-content:center;font-size:48px;">😊</div>
+      <h1>你好，我是小明</h1>
+      <p>一个热爱生活的普通人 🌟</p>
+  </div>
+
+  <!-- ====== 爱好板块 ====== -->
+  <div class="container">
+      <div class="section hobby" id="hobby">
+          <h2>🎮 我的爱好</h2>
+          <div class="card-grid">
+              <div class="card">
+                  <div class="icon">🎸</div>
+                  <h3>吉他</h3>
+                  <p>空闲时喜欢弹弹吉他，最爱民谣和流行曲，正在练习指弹。</p>
+              </div>
+              <div class="card">
+                  <div class="icon">🏃</div>
+                  <h3>跑步</h3>
+                  <p>每周坚持跑步3-4次，完成了人生第一个半程马拉松！</p>
+              </div>
+              <div class="card">
+                  <div class="icon">📷</div>
+                  <h3>摄影</h3>
+                  <p>喜欢用手机记录生活，街拍和风景是我的最爱。</p>
+              </div>
+              <div class="card">
+                  <div class="icon">🎮</div>
+                  <h3>游戏</h3>
+                  <p>偶尔打打游戏放松，偏爱独立游戏和剧情向作品。</p>
+              </div>
+          </div>
+      </div>
+
+      <!-- ====== 学习板块 ====== -->
+      <div class="section study" id="study">
+          <h2>📚 学习之路</h2>
+          <div class="timeline">
+              <div class="timeline-item">
+                  <h3>计算机科学与技术</h3>
+                  <div class="date">2023 - 至今</div>
+                  <p>正在大学攻读计算机专业，对编程和算法充满热情。</p>
+              </div>
+              <div class="timeline-item">
+                  <h3>自学前端开发</h3>
+                  <div class="date">2024</div>
+                  <p>学习了 HTML、CSS、JavaScript，正在探索 React 框架。</p>
+              </div>
+              <div class="timeline-item">
+                  <h3>英语学习</h3>
+                  <div class="date">持续进行</div>
+                  <p>每天坚持背单词和阅读英文文章，目标是能流畅阅读技术文档。</p>
+              </div>
+          </div>
+          <div class="tags">
+              <span class="tag blue">Python</span>
+              <span class="tag purple">JavaScript</span>
+              <span class="tag green">HTML/CSS</span>
+              <span class="tag orange">Git</span>
+              <span class="tag red">算法</span>
+          </div>
+      </div>
+
+      <!-- ====== 生活板块 ====== -->
+      <div class="section life" id="life">
+          <h2>🌿 日常生活</h2>
+          <div class="card-grid">
+              <div class="card">
+                  <div class="icon">🌅</div>
+                  <h3>早起</h3>
+                  <p>尽量每天7点起床，享受清晨的安静时光，喝杯咖啡开始新一天。</p>
+              </div>
+              <div class="card">
+                  <div class="icon">📖</div>
+                  <h3>阅读</h3>
+                  <p>最近在读《人类简史》，喜欢历史和科普类书籍。</p>
+              </div>
+              <div class="card">
+                  <div class="icon">🐱</div>
+                  <h3>撸猫</h3>
+                  <p>养了一只橘猫叫"年糕"，每天最大的快乐就是回家撸猫。</p>
+              </div>
+              <div class="card">
+                  <div class="icon">✈️</div>
+                  <h3>旅行</h3>
+                  <p>去过成都、厦门、大理，下一站想去新疆。</p>
+              </div>
+          </div>
+      </div>
+
+      <!-- ====== 美食板块 ====== -->
+      <div class="section food" id="food">
+          <h2>🍜 我的美食地图</h2>
+          <div class="food-item">
+              <div>
+                  <strong>🌶️ 四川火锅</strong>
+                  <p style="color:#888;font-size:14px;">麻辣鲜香，冬天的灵魂食物</p>
+              </div>
+              <div class="stars">★★★★★</div>
+          </div>
+          <div class="food-item">
+              <div>
+                  <strong>🥟 饺子</strong>
+                  <p style="color:#888;font-size:14px;">妈妈包的最好吃，韭菜鸡蛋馅永远的神</p>
+              </div>
+              <div class="stars">★★★★★</div>
+          </div>
+          <div class="food-item">
+              <div>
+                  <strong>🍣 寿司</strong>
+                  <p style="color:#888;font-size:14px;">三文鱼刺身配芥末，偶尔的奢侈享受</p>
+              </div>
+              <div class="stars">★★★★☆</div>
+          </div>
+          <div class="food-item">
+              <div>
+                  <strong>🍜 兰州拉面</strong>
+                  <p style="color:#888;font-size:14px;">一清二白三红四绿，早餐标配</p>
+              </div>
+              <div class="stars">★★★★☆</div>
+          </div>
+          <div class="food-item">
+              <div>
+                  <strong>🧋 奶茶</strong>
+                  <p style="color:#888;font-size:14px;">少糖去冰，打工人的续命水</p>
+              </div>
+              <div class="stars">★★★★★</div>
+          </div>
+      </div>
+  </div>
+
+  <!-- ====== 页脚 ====== -->
+  <footer>
+      <p>© 2025 小明 | 用 ❤️ 和 GitHub Pages 搭建</p>
+      <p><a href="https://github.com/你的用户名">GitHub</a></p>
+  </footer>
+
   </body>
   </html>
